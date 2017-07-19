@@ -9,9 +9,9 @@
 
 * 1st make the dataset by running 
     ```
-    make_dataset.m script
+    make_dataset.m
     ``` 
 * Then test by running 
     ```
-    testing.m script
+    testing.m
     ``` 
