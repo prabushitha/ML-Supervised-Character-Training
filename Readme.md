@@ -1,7 +1,5 @@
 # Machine Learning Experiments
 
-* Before executing any command, make sure to give neccessary permissions to corresponding script files. 
-
 ## Supervised Learning to recognize 3 characters using Octave
 1. Open octave
 2. Make q1 as working directory
