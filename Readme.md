@@ -3,13 +3,17 @@
 ## Supervised Learning to recognize 3 characters using Octave
 1. Open octave
 2. Make q1 as working directory
-3. In order to test already trained network
+3. To train the network again
 
-* 1st make the dataset by running 
+* Run make_dataset.m file to create datasets
     ```
-    make_dataset.m
+    >> make_dataset
     ``` 
-* Then test by running 
+* Run training.m file to create and train the network
     ```
-    testing.m
+    training
+    ``` 
+* Run testing.m file to test the trained network with testing dataset
+    ```
+    testing
     ``` 

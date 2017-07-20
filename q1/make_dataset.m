@@ -64,25 +64,3 @@ VV.T(2,size_validation+1:size_validation*2) = 1;
 VV.T(3,size_validation*2+1:size_validation*3) = 1;
 
 disp("Dataset completed");
-
-#Show the cleaned dataset images
-%{
-figure(1);
-for n=1:size_max
-    #show image
-  subplot(6,5,n);
-  imshow(ch11(n).im);
- end;
- figure(2);
- for n=1:size_max
-    #show image
-  subplot(6,5,n);
-  imshow(ch21(n).im);
- end;
- figure(3);
- for n=1:size_max
-    #show image
-  subplot(6,5,n);
-  imshow(ch31(n).im);
- end;
- %}
