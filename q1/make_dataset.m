@@ -6,12 +6,16 @@ size_train = 21; #size of training set for each character set
 size_test = 6; #size of testing set for each character set
 size_validation = 3; #size of validating set for each character set
 
+
 resize_nm = 14*14;
+# Now WE HAVE 14*14=196 inputs
+
+
 for n=1:size_max
   #clean image
-  ch11(n).im = cleanimg(ch1(n).im); 
-  ch21(n).im = cleanimg(ch2(n).im); 
-  ch31(n).im = cleanimg(ch3(n).im); 
+  ch11(n).im = cleanimg_func(ch1(n).im); 
+  ch21(n).im = cleanimg_func(ch2(n).im); 
+  ch31(n).im = cleanimg_func(ch3(n).im); 
   
   if (n <= size_train)
     #TRAINING SET
@@ -33,16 +37,11 @@ for n=1:size_max
   endif;
 end;
 
-#pad training and testing set
+#padding is not neccessary for this because we could resize all 3 characters to same column height
 
-# WE HAVE 64 inputs
-P(resize_nm+1,1:size_train*3)=0;
+#convert Vector values to double
 P = double(P);
-
-Test(resize_nm+1,1:size_test*3)=0;
 Test = double(Test);
-
-VV.P(resize_nm+1,1:size_validation*3)=0;
 VV.P = double(VV.P);
 
 
@@ -51,6 +50,7 @@ VV.P = double(VV.P);
 # 1 0 0
 # 0 1 0
 # 0 0 1
+
 # for training set
 T = zeros(3,size_train*3);
 T(1,1:size_train) = 1;
@@ -65,6 +65,7 @@ VV.T(3,size_validation*2+1:size_validation*3) = 1;
 
 disp("Dataset completed");
 
+#Show the cleaned dataset images
 figure(1);
 for n=1:size_max
     #show image
