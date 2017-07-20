@@ -12,11 +12,12 @@ resize_nm = 14*14;
 
 
 for n=1:size_max
-  #clean image
+  #ENHANCING IMAGES
   ch11(n).im = cleanimg_func(ch1(n).im); 
   ch21(n).im = cleanimg_func(ch2(n).im); 
   ch31(n).im = cleanimg_func(ch3(n).im); 
   
+  #SEPERATING IMAGES FOR TRAINING, VALIDATION AND TESTING
   if (n <= size_train)
     #TRAINING SET
     #add image to training set
@@ -28,7 +29,7 @@ for n=1:size_max
     #TESTING SET
     Test(:,n-size_train) = ch11(n).im(:); 
     Test(:,n-size_train+size_test) = ch21(n).im(:); 
-    Test(:,n-size_train+size_test*2) = ch31(n).im(:); 
+    Test(:,n-size_train+size_test*2) = ch31(n).im(:);     
   else
     #Validating SET
     VV.P(:,n-size_train-size_test) = ch11(n).im(:); 
@@ -36,14 +37,13 @@ for n=1:size_max
     VV.P(:,n-size_train-size_test+size_validation*2) = ch31(n).im(:); 
   endif;
 end;
-
 #padding is not neccessary for this because we could resize all 3 characters to same column height
-
 #convert Vector values to double
 P = double(P);
 Test = double(Test);
 VV.P = double(VV.P);
 
+#SETTING TARGETS
 
 #setting target for training and validation
 # 3 output nodes are required
@@ -66,6 +66,7 @@ VV.T(3,size_validation*2+1:size_validation*3) = 1;
 disp("Dataset completed");
 
 #Show the cleaned dataset images
+%{
 figure(1);
 for n=1:size_max
     #show image
@@ -84,3 +85,4 @@ for n=1:size_max
   subplot(6,5,n);
   imshow(ch31(n).im);
  end;
+ %}

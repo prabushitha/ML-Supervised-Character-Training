@@ -2,8 +2,8 @@ pkg load nnet
 
 #creating the network
 Pr = min_max(P);
-# 2 hidden layers with 5 hidden nodes, output layer with 3 output nodes
-net = newff(Pr,[6,3]);
+# 2 hidden layer with 6,4 hidden nodes, output layer with 3 output nodes
+net = newff(Pr,[6,4,3]);
 
 # train network
 net.trainParam.epochs = 50;
