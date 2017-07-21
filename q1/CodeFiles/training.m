@@ -11,5 +11,5 @@ net = train(net, P, T, [], [], VV);
 
 save trained_network.mat net;
 
-disp("Training completed");
+disp(['Training completed']);
 

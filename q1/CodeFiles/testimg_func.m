@@ -11,6 +11,9 @@ function result_text= testimg_func (img, net, clean=true, showimg=true)
   #Testing letter as a 196x1 column vector
   img_test = img(:);
   
+  #add bias input
+  img_test(197,1)=1;
+  
   #TESTING
   result = round(sim(net,img_test));
   

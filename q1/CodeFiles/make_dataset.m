@@ -38,6 +38,11 @@ for n=1:size_max
   endif;
 end;
 #padding is not neccessary for this because we could resize all 3 characters to same column height
+#Set bias input (x0) for 3 datasets
+P(resize_nm+1,1:size_train*3)=1;
+Test(resize_nm+1,1:size_test*3)=1;
+VV.P(resize_nm+1,1:size_validation*3)=1;
+
 #convert Vector values to double
 P = double(P);
 Test = double(Test);
